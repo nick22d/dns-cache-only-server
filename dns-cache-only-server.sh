@@ -90,3 +90,5 @@ named-checkconf -z /etc/bind/named.conf
 
 # Restart the bind service for the changes to take effect
 systemctl restart bind9
+
+exit 0
