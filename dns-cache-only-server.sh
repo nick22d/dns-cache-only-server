@@ -20,7 +20,7 @@ ifconfig enp0s3 192.168.1.254 netmask 255.255.255.0
 cd /etc/bind/
 
 # Populate the named.conf.options file
-cat > /etc/bind/named.conf.options <<- "EOF"
+cat > named.conf.options <<- "EOF"
 acl "trusted" {
 
 	192.168.1.0/24;
@@ -61,7 +61,7 @@ options {
 EOF
 
 # Populate the named.conf.local file
-cat > /etc/bind/named.conf.local <<- "EOF"
+cat > named.conf.local <<- "EOF"
 //
 // Do any local configuration here
 //
@@ -86,7 +86,7 @@ zone "intranet.local" {
 EOF
 
 # Verify the syntax of the named.conf file
-named-checkconf -z /etc/bind/named.conf
+named-checkconf -z named.conf
 
 # Restart the bind service for the changes to take effect
 systemctl restart bind9
